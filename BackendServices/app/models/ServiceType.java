@@ -9,7 +9,8 @@ public class ServiceType extends Model {
 	@Id
 	Long id;
 	String type;
-	public static Finder<Long, ServiceType> find = new Finder<Long, ServiceType>(Long.class, ServiceType.class);
+	public static Finder<Long, ServiceType> find =
+			new Finder<Long, ServiceType>(Long.class, ServiceType.class);
 	public ServiceType() {
 		super();
 	}

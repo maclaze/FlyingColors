@@ -1,4 +1,5 @@
 package controllers;
+import models.ServiceType;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import models.ServiceType;
