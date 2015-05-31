@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import models.ServiceType;
 import play.mvc.Controller;
 import play.mvc.Result;
-import com.fasterxml.jackson.databind.JsonNode;
 import play.mvc.BodyParser;
 
 public class ServiceTypeController extends Controller{
@@ -22,7 +21,16 @@ public class ServiceTypeController extends Controller{
 		if(type == null) {
 			return badRequest("Missing parameter [name]");
 		} else {
-			return ok("Hello " + type);
+			ServiceType service = ServiceType.create(type);
+			return ok(service.toString());
 		}
 	}
+	
+	public static Result getServiceType(Long id) {
+		ServiceType serv ;
+		serv = ServiceType.find.byId(id);
+		return ok(serv.toString());
+	}
+	
+	
 }
