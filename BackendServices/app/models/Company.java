@@ -17,18 +17,18 @@ public class Company extends Model {
 	}
 	
 	@Override
-	public String toString() {
+	public  String toString() {
 		return "Company [id=" + id + ", name=" + name + "]";
 	}
 	
 	public Company(String name,String ceo) {
 		super();
 		this.name = name; 
-		this.ceo=ceo;
+		//this.ceo=ceo;
 	}
 	
-	public static Company create(String name, String ceo) {
-		Company serve = new Company(name,ceo);
+	public static Company create(String name) {
+		Company serve = new Company(name);
 		serve.save();
 		return serve;
 	}

@@ -1,8 +1,11 @@
 package controllers;
-
-import play.mvc.Controller;
+import models.Company;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import models.ServiceType;
+import play.mvc.Controller;
+import play.mvc.Result;
+import play.mvc.BodyParser;
 
 
 public class CompanyController extends Controller {
@@ -16,20 +19,25 @@ public class CompanyController extends Controller {
 			return badRequest("Missing json ");
 		}
 		
-		String type = json.findPath("name").textValue();
+		String name = json.findPath("name").textValue();
 		if(name == null) {
 			return badRequest("Missing parameter [name]");
 		} 
 		else {
 			Company comp = Company.create(name);
-			return ok(service.toString());
+			return ok(Company.toString());
 		}
 }
 	public static Result getCompanyName(Long id) {
-		Company name = Company.find.byId(id); ;
+		Company nam = Company.find.byId(id); 
 		
-		return ok(name.toString());
+		return ok(nam.toString());
 	}
     }
 
 	
+
+		
+		
+		
+		 
