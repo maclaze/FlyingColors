@@ -3,11 +3,17 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index()
-GET     /sayHello                   controllers.CompanyController.sayHello()
-GET		/company/info/:id			controllers.CompanyController.getInfo(id: Long)
+#GET     /                           controllers.Application.index()
+#GET		/company/info/:id			controllers.CompanyController.getInfo(id: Long)
+
+
 POST	/service/create				controllers.ServiceTypeController.createServiceType()
+
 GET 	/service/:id				controllers.ServiceTypeController.getServiceType(id: Long)
+
+POST 	/company/create             controllers.CompanyController.CreateControlType()
+
+GET 	/company/:id				 controllers.CompanyController.getCompanyName(id:Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

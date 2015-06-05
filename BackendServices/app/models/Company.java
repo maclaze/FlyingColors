@@ -8,6 +8,8 @@ public class Company extends Model {
 	Long id;
 	String name;
 	String ceo;
+	public static Finder<Long, Company> find =
+			new Finder<Long, Company>(Long.class, Company.class);
 	
 	
 	public Company() {
