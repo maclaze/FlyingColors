@@ -21,7 +21,7 @@ public class Company extends Model {
 		return "Company [id=" + id + ", name=" + name + "]";
 	}
 	
-	public Company(String name,String ceo) {
+	public Company(String name) {
 		super();
 		this.name = name; 
 		//this.ceo=ceo;

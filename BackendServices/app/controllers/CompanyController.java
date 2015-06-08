@@ -25,7 +25,7 @@ public class CompanyController extends Controller {
 		} 
 		else {
 			Company comp = Company.create(name);
-			return ok(Company.toString());
+			return ok(comp.toString());
 		}
 }
 	public static Result getCompanyName(Long id) {
