@@ -1,4 +1,6 @@
 package models;
+import java.util.List;
+
 import javax.persistence.*;
 
 import play.db.ebean.*;
@@ -8,13 +10,16 @@ public class Company extends Model {
 	Long id;
 	String name;
 	String ceo;
+	@ManyToMany(cascade = CascadeType.ALL)
+	//@JoinColumn(name="comapny_service", referencedColumnName = "service_type_id")
+	List<ServiceType> myservice;
 	public static Finder<Long, Company> find =
 			new Finder<Long, Company>(Long.class, Company.class);
-	
 	
 	public Company() {
 		super();
 	}
+	
 	
 	@Override
 	public  String toString() {
@@ -28,7 +33,7 @@ public class Company extends Model {
 	}
 	
 	public static Company create(String name) {
-		Company serve = new Company(name);
+		Company serve = new Company(name)				;
 		serve.save();
 		return serve;
 	}

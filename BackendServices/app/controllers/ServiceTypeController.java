@@ -12,7 +12,8 @@ public class ServiceTypeController extends Controller{
 	//curl -H "Content-Type: application/json" -X POST -d '{"type":"xyz"}' http://localhost:9000/service/create
 
 	@BodyParser.Of(BodyParser.Json.class)
-	public static Result createServiceType() {		
+	public static Result createServiceType() {	
+		
 		JsonNode json = request().body().asJson();
 		System.out.println(json);
 		if (json==null) {
@@ -28,8 +29,7 @@ public class ServiceTypeController extends Controller{
 	}
 	
 	public static Result getServiceType(Long id) {
-		ServiceType serv ;
-		serv = ServiceType.find.byId(id);
+		ServiceType serv = ServiceType.find.byId(id);
 		return ok(serv.toString());
 	}
 	
